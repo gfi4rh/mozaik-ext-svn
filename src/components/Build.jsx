@@ -38,7 +38,7 @@ class Build extends Component {
 
     let style = {
       margin : '0.5em',
-      backgroundColor : '#d2dae2',
+      backgroundColor : '#808e9b',
       paddingLeft  : '0.5em',
       paddingRight : '0.5em',
       borderRadius : '0.2em'
@@ -77,7 +77,7 @@ class Build extends Component {
     return (
       <div style={style}>
           <div style={pointStyle}/>
-          <div style={{position: 'relative', float: 'left'}}>{title}</div>
+          <div>{title}</div>
       </div>
     );
   }
