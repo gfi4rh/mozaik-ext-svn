@@ -49,7 +49,7 @@ class Build extends Component {
     if(build){
 
       switch(build.result){
-        case "SUCESS" : style.backgroundColor = '#05c46b'
+        case "SUCCESS" : style.backgroundColor = '#05c46b'
         case "UNSTABLE" : style.backgroundColor = '#ffd32a'
         case "ABORTED" : style.backgroundColor = '#ffd32a'
         case "FAILURE" : style.backgroundColor = '#ff3f34'
