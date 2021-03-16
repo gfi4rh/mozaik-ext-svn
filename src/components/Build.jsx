@@ -41,15 +41,28 @@ class Build extends Component {
       margin : '0.5em',
       paddingLeft  : '0.5em',
       paddingRight : '0.5em',
-      backgroundColor : '#7f8fa6',
       borderRadius : '0.2em'
     }
 
-      return (
+    let node = null
+
+    if(build){
+
+      switch(build.result){
+        case "SUCESS" : style.backgroundColor = '#05c46b'
+        case "UNSTABLE" : style.backgroundColor = '#ffd32a'
+        case "ABORTED" : style.backgroundColor = '#ffd32a'
+        case "FAILURE" : style.backgroundColor = '#ff3f34'
+      }
+
+      node = (
         <div style={style}>
-        {title} {build != null && build.actions[2].buildableTimeMillis}
-      </div>
+          {title}
+        </div>
       );
+    }
+
+    return node;
   }
 }
 
