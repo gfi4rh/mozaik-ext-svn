@@ -7,7 +7,7 @@ const client = mozaik => {
 
     build( name ){
 
-      //mozaik.logger.info(chalk.yellow(`[jira] calling jenkins.build`));
+      mozaik.logger.info(chalk.yellow(`[jenkins] calling jenkins.build`));
 
       return fetch(`http://nrh-pic:8080/job/${name.name}/lastBuild/api/json`, {
         method: 'GET',

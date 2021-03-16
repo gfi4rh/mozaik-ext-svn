@@ -31,11 +31,22 @@ class Build extends Component {
     });
   }
 
+
   render() {
+
+    let style = {
+      padding : '1em',
+      backgroundColor : '#7f8fa6',
+      borderRadius : '2px'
+    }
+
+    let node = (
+      <div style={style}>
+        Hello from builds component children {build.actions[2].buildableTimeMillis}
+      </div>
+    );
       return (
-          <div>
-              Hello from builds component children
-          </div>
+        {node}
       );
   }
 }
