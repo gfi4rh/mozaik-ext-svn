@@ -34,6 +34,8 @@ class Build extends Component {
 
   render() {
 
+    const { build } = this.state;
+
     let style = {
       padding : '1em',
       backgroundColor : '#7f8fa6',
@@ -42,7 +44,7 @@ class Build extends Component {
 
     let node = (
       <div style={style}>
-        Hello from builds component children {build.actions[2].buildableTimeMillis}
+        Hello from builds component children {build != null && build.actions[2].buildableTimeMillis}
       </div>
     );
       return (
