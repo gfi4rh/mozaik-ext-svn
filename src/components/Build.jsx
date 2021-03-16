@@ -25,7 +25,6 @@ class Build extends Component {
   }
 
   onApiData(build) {
-    console.log(JSON.stringify(build));
     this.setState({
         build : build
     });
@@ -49,10 +48,18 @@ class Build extends Component {
     if(build){
 
       switch(build.result){
-        case "SUCCESS" : style.backgroundColor = '#05c46b'
-        case "UNSTABLE" : style.backgroundColor = '#ffd32a'
-        case "ABORTED" : style.backgroundColor = '#ffd32a'
-        case "FAILURE" : style.backgroundColor = '#ff3f34'
+        case "SUCCESS" : 
+          style.backgroundColor = '#05c46b'
+          break;
+        case "UNSTABLE" : 
+          style.backgroundColor = '#ffd32a'
+          break;
+        case "ABORTED" : 
+          style.backgroundColor = '#ffd32a'
+          break;
+        case "FAILURE" : 
+          style.backgroundColor = '#ff3f34'
+          break;
       }
 
       node = (
