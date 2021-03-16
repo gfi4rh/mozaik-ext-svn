@@ -38,38 +38,48 @@ class Build extends Component {
 
     let style = {
       margin : '0.5em',
+      backgroundColor : '#d2dae2',
       paddingLeft  : '0.5em',
       paddingRight : '0.5em',
       borderRadius : '0.2em'
     }
 
-    let node = null
+    let pointStyle = {
+      width : '1em',
+      height : '1em',
+      margin : '0.5em',
+      borderRadius : '1em',
+      position : 'relative',
+      float : 'left'
+    }
+
 
     if(build){
 
       switch(build.result){
         case "SUCCESS" : 
-          style.backgroundColor = '#05c46b'
+          pointStyle.backgroundColor = '#05c46b'
           break;
         case "UNSTABLE" : 
-          style.backgroundColor = '#ffd32a'
+          pointStyle.backgroundColor = '#ffd32a'
           break;
         case "ABORTED" : 
-          style.backgroundColor = '#ffd32a'
+          pointStyle.backgroundColor = '#ffd32a'
           break;
         case "FAILURE" : 
-          style.backgroundColor = '#ff3f34'
+          pointStyle.backgroundColor = '#ff3f34'
           break;
       }
 
-      node = (
-        <div style={style}>
-          {title}
-        </div>
-      );
+
     }
 
-    return node;
+    return (
+      <div style={style}>
+          <div style={pointStyle}/>
+          <div style={{position: 'relative', float: 'left'}}>{title}</div>
+      </div>
+    );
   }
 }
 
