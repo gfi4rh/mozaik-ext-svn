@@ -13,7 +13,7 @@ class Builds extends Component {
 
     render() {
 
-        const { name } = this.props
+        const { jobs } = this.props
 
         return (
             <div>
@@ -26,7 +26,7 @@ class Builds extends Component {
                     <i className="fa fa-running" />
                 </div>
                 <div className="widget__body">
-                    <Build name={name}/>
+                    {jobs.map(e => <Build name={e.name} title={e.title}/>)}
                 </div>
             </div>
         );

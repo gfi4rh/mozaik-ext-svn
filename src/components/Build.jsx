@@ -34,6 +34,7 @@ class Build extends Component {
 
   render() {
 
+    const { title } = this.props;
     const { build } = this.state;
 
     let style = {
@@ -43,10 +44,10 @@ class Build extends Component {
       backgroundColor : '#7f8fa6',
       borderRadius : '0.2em'
     }
-    
+
       return (
         <div style={style}>
-        Hello from builds component children {build != null && build.actions[2].buildableTimeMillis}
+        {title} {build != null && build.actions[2].buildableTimeMillis}
       </div>
       );
   }
