@@ -2,10 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
-import Build                           from './Build.jsx';
 
 
-class Builds extends Component {
+class Build extends Component {
 
     constructor(props) {
         super(props);   
@@ -23,16 +22,16 @@ class Builds extends Component {
                     <i className="fa fa-running" />
                 </div>
                 <div className="widget__body">
-                    <Build/>
+                    Hello from builds component children
                 </div>
             </div>
         );
     }
 }
 
-Builds.displayName = 'Builds';
+Build.displayName = 'Build';
 
-reactMixin(Builds.prototype, ListenerMixin);
-reactMixin(Builds.prototype, Mozaik.Mixin.ApiConsumer);
+reactMixin(Build.prototype, ListenerMixin);
+reactMixin(Build.prototype, Mozaik.Mixin.ApiConsumer);
 
-export default Builds;
+export default Build;
