@@ -12,6 +12,9 @@ class Builds extends Component {
     }
 
     render() {
+
+        const { name } = this.props
+
         return (
             <div>
                 <div className="widget__header">
@@ -23,7 +26,7 @@ class Builds extends Component {
                     <i className="fa fa-running" />
                 </div>
                 <div className="widget__body">
-                    <Build/>
+                    <Build name={name}/>
                 </div>
             </div>
         );

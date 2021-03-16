@@ -7,26 +7,37 @@ import reactMixin                      from 'react-mixin';
 class Build extends Component {
 
     constructor(props) {
-        super(props);   
+        super(props);
+        this.state = {
+          build : null
+        }  
     }
 
-    render() {
-        return (
-            <div>
-                <div className="widget__header">
-                    <span>
-                        <span className="widget__header__subject">{this.props.title}</span>
-                    </span>
-                    <span className="widget__header__count">
-                    </span>
-                    <i className="fa fa-running" />
-                </div>
-                <div className="widget__body">
-                    Hello from builds component children
-                </div>
-            </div>
-        );
-    }
+    getApiRequest() {
+      let { name } = this.props;
+
+      return {
+          id:     `jenkins.build.${ name }`,
+          params: {
+              name : name
+          }
+      };
+  }
+
+  onApiData(build) {
+    console.log(JSON.stringify(build));
+    this.setState({
+        build : build
+    });
+  }
+
+  render() {
+      return (
+          <div>
+              Hello from builds component children
+          </div>
+      );
+  }
 }
 
 Build.displayName = 'Build';
