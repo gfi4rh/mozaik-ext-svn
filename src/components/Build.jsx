@@ -37,18 +37,17 @@ class Build extends Component {
     const { build } = this.state;
 
     let style = {
-      padding : '1em',
+      margin : '0.5em',
+      paddingLeft  : '0.5em',
+      paddingRight : '0.5em',
       backgroundColor : '#7f8fa6',
-      borderRadius : '2px'
+      borderRadius : '0.2em'
     }
-
-    let node = (
-      <div style={style}>
+    
+      return (
+        <div style={style}>
         Hello from builds component children {build != null && build.actions[2].buildableTimeMillis}
       </div>
-    );
-      return (
-        {node}
       );
   }
 }
