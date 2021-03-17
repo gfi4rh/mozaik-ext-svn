@@ -38,6 +38,7 @@ class Build extends Component {
 
     let statusNode = null
     let time = null
+    let number = null
 
     if(build){
 
@@ -63,14 +64,15 @@ class Build extends Component {
           break;
       }
       
-      statusNode = <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-      time = <div>Hello</div>
+      statusNode = <div className="jenkins_build_box" style={{backgroundColor : backgroundColor}}>{status}</div>
+      time = <div className="jenkins_build_time">Hello</div>
+      number = <div className="jenkins_build_box" style={{backgroundColor : '#2c2c54'}}>{build.displayName}</div>
     }
 
     return (
       <div className="jenkins_build_line">
         <div className="jenkins_build_name">{title}</div>
-        {build != null && <span className="widget__header__count">{build.displayName}</span>}
+        {number}
         {statusNode}
         {time}
       </div>
