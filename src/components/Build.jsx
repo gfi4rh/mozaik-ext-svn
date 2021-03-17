@@ -68,10 +68,8 @@ class Build extends Component {
 
     return (
       <div className="jenkins_build_line">
-        <div style={{display: 'flex'}}>
-          <div className="jenkins_build_name">{title}</div>
-          {statusNode}
-        </div>
+        <div className="jenkins_build_name">{title}</div>
+        {statusNode}
       </div>
     );
   }
