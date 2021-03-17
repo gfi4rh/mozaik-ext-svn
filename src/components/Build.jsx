@@ -36,38 +36,20 @@ class Build extends Component {
     const { title } = this.props;
     const { build } = this.state;
 
-    let style = {
-      margin : '0.5em',
-      backgroundColor : '#808e9b',
-      paddingLeft  : '0.5em',
-      paddingRight : '0.5em',
-      borderRadius : '0.2em'
-    }
-
-    let pointStyle = {
-      width : '1em',
-      height : '1em',
-      margin : '0.5em',
-      borderRadius : '1em',
-      position : 'relative',
-      float : 'left'
-    }
-
 
     if(build){
-
       switch(build.result){
         case "SUCCESS" : 
-          pointStyle.backgroundColor = '#05c46b'
+          backgroundColor = '#05c46b'
           break;
         case "UNSTABLE" : 
-          pointStyle.backgroundColor = '#ffd32a'
+          backgroundColor = '#ffd32a'
           break;
         case "ABORTED" : 
-          pointStyle.backgroundColor = '#ffd32a'
+          backgroundColor = '#ffd32a'
           break;
         case "FAILURE" : 
-          pointStyle.backgroundColor = '#ff3f34'
+          backgroundColor = '#ff3f34'
           break;
       }
 
@@ -75,8 +57,8 @@ class Build extends Component {
     }
 
     return (
-      <div style={style}>
-          <div style={pointStyle}/>
+      <div className="jenkins_build_line">
+          <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}/>
           <div>{title}</div>
       </div>
     );
