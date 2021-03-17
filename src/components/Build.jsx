@@ -64,10 +64,8 @@ class Build extends Component {
 
     return (
       <div className="jenkins_build_line">
-          <div>{title}</div>
-          <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>
-            {status}
-          </div>
+          <div className="jenkins_build_name">{title}</div>
+          <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
       </div>
     );
   }
