@@ -64,9 +64,9 @@ class Build extends Component {
           break;
       }
       
-      statusNode = <div className="jenkins_build_box" style={{backgroundColor : backgroundColor}}>{status}</div>
+      statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
       time = <div className="jenkins_build_time">Hello</div>
-      number = <div className="jenkins_build_box" style={{backgroundColor : '#1e2836', color: '#7e9ebc'}}>{build.displayName}</div>
+      number = <div className="jenkins_build_box jenkins_build_number">{build.displayName}</div>
     }
 
     return (
