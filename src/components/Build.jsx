@@ -36,7 +36,8 @@ class Build extends Component {
     const { title } = this.props;
     const { build } = this.state;
 
-
+    let backgroundColor = null;
+    
     if(build){
       switch(build.result){
         case "SUCCESS" : 
