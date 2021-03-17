@@ -62,7 +62,7 @@ class Build extends Component {
           break;
       }
       
-      node = <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
+      statusNode = <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
 
     }
 
