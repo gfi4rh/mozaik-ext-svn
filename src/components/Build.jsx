@@ -36,10 +36,13 @@ class Build extends Component {
     const { title } = this.props;
     const { build } = this.state;
 
-    let backgroundColor = null;
-    let status = null
+    let statusNode = null
 
     if(build){
+
+      let backgroundColor = null;
+      let status = null
+    
       switch(build.result){
         case "SUCCESS" : 
           backgroundColor = '#05c46b'
@@ -58,14 +61,17 @@ class Build extends Component {
           status = 'FAILURE'
           break;
       }
-
+      
+      node = <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
 
     }
 
     return (
       <div className="jenkins_build_line">
+        <div style={{display: 'flex'}}>
           <div className="jenkins_build_name">{title}</div>
-          <div className="jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
+          {statusNode}
+        </div>
       </div>
     );
   }
