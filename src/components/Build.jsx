@@ -3,6 +3,7 @@ import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
 import moment from 'moment';
+const  { ProgressBar }                         = Mozaik.Component;
 
 
 class Build extends Component {
@@ -43,34 +44,43 @@ class Build extends Component {
 
     if(build){
 
-      let backgroundColor = null;
-      let status = null
-    
-      switch(build.result){
-        case "SUCCESS" : 
-          backgroundColor = '#198452'
-          status = 'SUCCESS'
-          break;
-        case "UNSTABLE" : 
-          backgroundColor = '#ffd32a'
-          status = 'UNSTABLE'
-          break;
-        case "ABORTED" : 
-          backgroundColor = '#ffd32a'
-          status = 'ABORTED'
-          break;
-        case "FAILURE" : 
-          backgroundColor = '#ff3f34'
-          status = 'FAILURE'
-          break;
+      if(!build.building){
+
+        let backgroundColor = null;
+        let status = null
+      
+        switch(build.result){
+          case "SUCCESS" : 
+            backgroundColor = '#198452'
+            status = 'SUCCESS'
+            break;
+          case "UNSTABLE" : 
+            backgroundColor = '#ffd32a'
+            status = 'UNSTABLE'
+            break;
+          case "ABORTED" : 
+            backgroundColor = '#ffd32a'
+            status = 'ABORTED'
+            break;
+          case "FAILURE" : 
+            backgroundColor = '#ff3f34'
+            status = 'FAILURE'
+            break;
+        }
+
+        moment.locale('fr')
+        let timeAgo = moment(build.timestamp).fromNow();
+        let duration = moment.utc(build.duration).format("HH:mm:ss");
+        
+        statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
+        time = <div className="jenkins_build_time">{`${timeAgo} / ${duration}`}</div>
+
+      } else {
+
+        time = <ProgressBar completed={50} color={'#161824'} height={'0.3em'}/>
+
       }
 
-      moment.locale('fr')
-      let timeAgo = moment(build.timestamp).fromNow();
-      let duration = moment.utc(build.duration).format("HH:mm:ss");
-      
-      statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-      time = <div className="jenkins_build_time">{`${timeAgo} / ${duration}`}</div>
       number = <div className="jenkins_build_box jenkins_build_number">{build.displayName}</div>
     }
 

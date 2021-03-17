@@ -21,9 +21,6 @@ class Builds extends Component {
                     <span>
                         <span className="widget__header__subject">{this.props.title}</span>
                     </span>
-                    <span className="widget__header__count">
-                    </span>
-                    <i className="fa fa-running" />
                 </div>
                 <div className="widget__body">
                     {jobs.map(e => <Build name={e.name} title={e.title}/>)}
