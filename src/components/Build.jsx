@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
+import moment from 'moment';
 
 
 class Build extends Component {
@@ -63,9 +64,11 @@ class Build extends Component {
           status = 'FAILURE'
           break;
       }
+
+      let duration = moment.duration(build.duration).forma("HH:mm:ss");
       
       statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-      time = <div className="jenkins_build_time">Hello</div>
+      time = <div className="jenkins_build_time"><i class="fa fa-clock-o" aria-hidden="true"></i>{duration}</div>
       number = <div className="jenkins_build_box jenkins_build_number">{build.displayName}</div>
     }
 
