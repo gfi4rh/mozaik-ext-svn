@@ -65,10 +65,12 @@ class Build extends Component {
           break;
       }
 
+      moment.locale('fr')
+      let timeAgo = moment(build.timestamp).fromNow();
       let duration = moment.utc(build.duration).format("HH:mm:ss");
       
       statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-      time = <div className="jenkins_build_time"><i class="fa fa-clock-o" aria-hidden="true"></i>{duration}</div>
+      time = <div className="jenkins_build_time">{timeAge}<img src="https://img.icons8.com/material-outlined/24/000000/clock--v1.png"/>{duration}</div>
       number = <div className="jenkins_build_box jenkins_build_number">{build.displayName}</div>
     }
 
