@@ -47,7 +47,7 @@ class Build extends Component {
     
       switch(build.result){
         case "SUCCESS" : 
-          backgroundColor = '#05c46b'
+          backgroundColor = '#198452'
           status = 'SUCCESS'
           break;
         case "UNSTABLE" : 
