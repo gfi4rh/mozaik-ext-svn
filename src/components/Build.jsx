@@ -3,6 +3,7 @@ import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
 import moment from 'moment';
+import 'moment/locale/fr';
 const  { ProgressBar }                         = Mozaik.Component;
 
 
