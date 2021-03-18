@@ -62,7 +62,7 @@ class Build extends Component {
             status = 'UNSTABLE'
             break;
           case "ABORTED" : 
-            backgroundColor = '#ffd32a'
+            backgroundColor = '#c8a318'
             status = 'ABORTED'
             break;
           case "FAILURE" : 
