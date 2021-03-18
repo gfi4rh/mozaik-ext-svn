@@ -86,7 +86,7 @@ class Build extends Component {
 
         time = <div className="jenkins_build_progress">
                 <div className="jenkins_build_time_progress">{chrono}</div>
-                <ProgressBar style={{border : '0.1em solid #323f53'}} completed={completed > 100 ? 100 : completed} color={'#35a446'} height={'0.3em'}/>
+                <ProgressBar completed={completed > 100 ? 100 : completed} color={'#35a446'} height={'0.3em'} colorEnd={'#2b3847'}/>
               </div>
 
       }
