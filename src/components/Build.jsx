@@ -45,6 +45,8 @@ class Build extends Component {
 
     if(build){
 
+      moment.locale('fr')
+
       if(build.building){ //change to test progress bar
 
         let backgroundColor = null;
@@ -69,7 +71,7 @@ class Build extends Component {
             break;
         }
 
-        moment.locale('fr')
+        
         let timeAgo = moment(build.timestamp).fromNow();
         let duration = moment.utc(build.duration).format("HH:mm:ss");
         
@@ -78,9 +80,13 @@ class Build extends Component {
 
       } else {
 
+        let diff = moment().diff(moment.utc(1616052240870 /*build.timestamp*/))
+        let chrono = moment(diff).format("HH:mm:ss")
+        let completed = diff*100/1964056 /*build.estimatedDuration */
+
         time = <div className="jenkins_build_progress">
-                <div>TimeStamp</div>
-                <ProgressBar completed={50} color={'#161824'} height={'0.3em'}/>
+                <div className="jenkins_build_time_progress">{chrono}</div>
+                <ProgressBar completed={completed} color={'#161824'} height={'0.3em'}/>
               </div>
 
       }
