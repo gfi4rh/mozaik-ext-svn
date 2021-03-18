@@ -18,7 +18,7 @@ const client = mozaik => {
       .then(res => res.json())
       .then(json => { 
         if(json.building){
-          mozaik.bus.changeInterval(`jenkins.build.${name.name}`, 1000)
+          mozaik.bus.changeInterval(`jenkins.build.${name.name}`, 2000)
         } else {
           const { apisPollInterval } = mozaik.config
           mozaik.bus.changeInterval(`jenkins.build.${name.name}`, apisPollInterval)
