@@ -79,6 +79,7 @@ class Build extends Component {
       } else {
 
         time = <div className="jenkins_build_progress">
+                <div>TimeStamp</div>
                 <ProgressBar completed={50} color={'#161824'} height={'0.3em'}/>
               </div>
 
