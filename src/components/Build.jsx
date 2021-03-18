@@ -80,13 +80,13 @@ class Build extends Component {
 
       } else {
 
-        let diff = moment().diff(moment(build.timestamp))
-        let chrono = moment(diff).format("HH:mm:ss")
+        let diff = moment().diff(build.timestamp)
+        let chrono = moment.utc(diff).format("HH:mm:ss")
         let completed = diff*100/build.estimatedDuration
 
         time = <div className="jenkins_build_progress">
                 <div className="jenkins_build_time_progress">{chrono}</div>
-                <ProgressBar completed={completed > 100 ? 100 : completed} color={'#161824'} height={'0.3em'}/>
+                <ProgressBar style={{border : '0.1em solid #323f53'}} completed={completed > 100 ? 100 : completed} color={'#35a446'} height={'0.3em'}/>
               </div>
 
       }
