@@ -45,7 +45,7 @@ class Build extends Component {
 
     if(build){
 
-      if(!build.building){
+      if(build.building){ //change to test progress bar
 
         let backgroundColor = null;
         let status = null
@@ -74,11 +74,13 @@ class Build extends Component {
         let duration = moment.utc(build.duration).format("HH:mm:ss");
         
         statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-        time = <div className="jenkins_build_time">{`Dernier build ${timeAgo} | Durée : ${duration}`}</div>
+        time = <div className="jenkins_build_time">{`${timeAgo} | Durée : ${duration}`}</div>
 
       } else {
 
-        time = <ProgressBar className="jenkins_build_progress" completed={50} color={'#161824'} height={'0.3em'}/>
+        time = <div className="jenkins_build_progress">
+            <ProgressBar completed={50} color={'#161824'} height={'0.3em'}/>
+          </div>
 
       }
 
