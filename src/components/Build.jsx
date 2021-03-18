@@ -74,7 +74,7 @@ class Build extends Component {
         let duration = moment.utc(build.duration).format("HH:mm:ss");
         
         statusNode = <div className="jenkins_build_box jenkins_build_status" style={{backgroundColor : backgroundColor}}>{status}</div>
-        time = <div className="jenkins_build_time">{`${timeAgo} / ${duration}`}</div>
+        time = <div className="jenkins_build_time">{`Dernier build ${timeAgo} | Durée : ${duration}`}</div>
 
       } else {
 
