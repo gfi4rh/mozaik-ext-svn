@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import Mozaik                          from 'mozaik/browser';
 import { ListenerMixin }               from 'reflux';
 import reactMixin                      from 'react-mixin';
-import { Graphic }                     from Mozaik.Component;
+const { Graphic }                      = Mozaik.Component;
 
 
 class Test extends Component {
