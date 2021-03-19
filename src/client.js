@@ -36,10 +36,10 @@ const client = mozaik => {
 				header : {Accept: 'application/json'}
 			})
 			.then(res => res.json())
-			.then(json => fetch(`http://nrh-pic:8080/job/${name.name}/${json.id}/allure/widgets/summary.json`,{
+			/*.then(json => fetch(`http://nrh-pic:8080/job/${name.name}/${json.id}/allure/widgets/summary.json`,{
 				method : 'GET',
 				header : {Accept: 'application/json'}
-			})).then(res => res.json())
+			})).then(res => res.json())*/
 		}
 	}
 

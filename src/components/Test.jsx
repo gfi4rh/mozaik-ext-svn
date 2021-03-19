@@ -25,8 +25,9 @@ class Test extends Component {
     }
     
     onApiData(test) {
+      console.log(JSON.stringify(test))
       this.setState({
-        test : test.statistic
+        test : null
       });
     }
 
