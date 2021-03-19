@@ -78,25 +78,24 @@ class Test extends Component {
 
 
       if(test != null) {
-
         contentChart = <Graphic type="doughnut" data={data} options={options} width="100%" height="100%"/>
       }
 
-        return (
-            <div>
-                <div className="widget__header">
-                    <span>
-                        <span className="widget__header__subject">{this.props.title}</span>
-                    </span>
-                    <span className="widget__header__count">
-                    </span>
-                </div>
-                <div className="widget__body">
-                  {contentChart}
-                  {legend}
-                </div>
-            </div>
-        );
+      return (
+          <div>
+              <div className="widget__header">
+                  <span>
+                      <span className="widget__header__subject">{this.props.title}</span>
+                  </span>
+                  <span className="widget__header__count">
+                  </span>
+              </div>
+              <div className="widget__body">
+                {contentChart}
+                {legend}
+              </div>
+          </div>
+      );
     }
 }
 
