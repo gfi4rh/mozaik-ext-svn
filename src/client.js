@@ -25,8 +25,22 @@ const client = mozaik => {
 					}
 					return json ;
 			});
-		}
+		},
 
+		test ( name ){
+
+			mozaik.logger.info(chalk.yellow(`[jenkins] calling jenkins.test`));
+
+			return fetch(`http://nrh-pic:8080/job/${name.name}/lastBuild/api/json`,{
+				method : 'GET',
+				header : {Accept: 'application/json'}
+			})
+			.then(res => res.json())
+			.then(json => fetch(`http://nrh-pic:8080/job/${name.name}/${json.id}/allure/widgets/summary.json`,{
+				method : 'GET',
+				header : {Accept: 'application/json'}
+			})).then(res => res.json())
+		}
 	}
 
 		return apiCalls;

@@ -8,9 +8,31 @@ class Test extends Component {
 
     constructor(props) {
         super(props);   
+        this.state = {
+          test : null 
+        }
+    }
+
+    getApiRequest() {
+      let { name } = this.props;
+      
+      return {
+        id:     `jenkins.test.${ name }`,
+        params: {
+          name : name
+        }
+      };
+    }
+    
+    onApiData(test) {
+      this.setState({
+        test : test.statistic
+      });
     }
 
     render() {
+
+      const { test } = this.state;
 
         return (
             <div>
@@ -22,7 +44,7 @@ class Test extends Component {
                     </span>
                 </div>
                 <div className="widget__body">
-                  Hello from test
+                  Hello from test {test != null && test.total }
                 </div>
             </div>
         );
