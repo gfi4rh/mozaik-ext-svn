@@ -33,12 +33,12 @@ const client = mozaik => {
 
 			return fetch(`http://nrh-pic:8080/job/${name.name}/lastBuild/api/json`,{
 				method : 'GET',
-				header : {'Accept': 'application/json'}
+				headers : {'Accept': 'application/json'}
 			})
 			.then(res => res.json())
 			.then(json => fetch(`http://nrh-pic:8080/job/${name.name}/${json.id}/allure/widgets/summary.json`,{
 				method : 'GET',
-				header : {'Accept': 'application/json'}
+				headers : {'Accept': 'application/json'}
 			})).then(res => res.json())
 		}
 	}
