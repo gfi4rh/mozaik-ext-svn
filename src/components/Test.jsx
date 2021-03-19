@@ -12,6 +12,7 @@ class Test extends Component {
     this.state = {
       test : null 
     }
+
   }
   
   getApiRequest() {
@@ -56,12 +57,11 @@ class Test extends Component {
       circumference:  Math.PI
     }
     
-    return (data, options)
+    return {data : data, options : options}
     
   }
   
   onApiData(test) {
-    console.log(JSON.stringify(test.statistic));
     this.setState({
       test : test.statistic
     });
@@ -70,15 +70,15 @@ class Test extends Component {
   render() {
     
     const { test } = this.state;
-    
-    const {data , options } = formatData(test);
+  
     
     let contentChart = null;
-    let legend = null,
+    let legend = null;
     
     
     if(test != null) {
-      contentChart = <Graphic type="doughnut" data={data} options={options} width="100%" height="100%"/>
+      const {data , options } = this.formatData(test);
+      contentChart = <Graphic type="doughnut" data={data} options={options} width={'0.5em'} height={'0.5em'}/>
     }
     
     return (
@@ -91,7 +91,6 @@ class Test extends Component {
         </div>
         <div className="widget__body">
           {contentChart}
-          {legend}
         </div>
       </div>
       );
