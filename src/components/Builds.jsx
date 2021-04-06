@@ -13,7 +13,7 @@ class Builds extends Component {
 
     render() {
 
-        const { jobs } = this.props;
+        const { jobs, url } = this.props;
 
         return (
             <div>
@@ -23,7 +23,7 @@ class Builds extends Component {
                     </span>
                 </div>
                 <div className="widget__body">
-                    {jobs.map(e => <Build name={e.name} title={e.title}/>)}
+                    {jobs.map(e => <Build name={e.name} url={url} title={e.title}/>)}
                 </div>
             </div>
         );

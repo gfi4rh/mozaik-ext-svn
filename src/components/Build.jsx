@@ -17,12 +17,13 @@ class Build extends Component {
 	}
 	
 	getApiRequest() {
-		let { name } = this.props;
+		let { name, url } = this.props;
 		
 		return {
 			id:     `jenkins.build.${ name }`,
 			params: {
-				name : name
+				name : name,
+				url : url
 			}
 		};
 	}

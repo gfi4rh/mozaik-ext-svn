@@ -16,12 +16,13 @@ class Test extends Component {
   }
   
   getApiRequest() {
-    let { name } = this.props;
+    let { name, url } = this.props;
     
     return {
       id:     `jenkins.test.${ name }`,
       params: {
-        name : name
+        name : name,
+        url : url
       }
     };
   }

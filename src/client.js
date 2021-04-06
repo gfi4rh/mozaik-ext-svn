@@ -5,11 +5,11 @@ const client = mozaik => {
 
 	const apiCalls = {
 		
-		build( name ){
+		build( params ){
 
 			mozaik.logger.info(chalk.yellow(`[jenkins] calling jenkins.build`));
 
-			return fetch(`http://nrh-pic:8080/job/${name.name}/lastBuild/api/json`, {
+			return fetch(`${params.url}/job/${params.name}/lastBuild/api/json`, {
 				method: 'GET',
 				headers: {
 					'Accept': 'application/json'
@@ -18,25 +18,25 @@ const client = mozaik => {
 			.then(res => res.json())
 			.then(json => { 
 					if(json.building){
-							mozaik.bus.changeInterval(`jenkins.build.${name.name}`, 5000);
+							mozaik.bus.changeInterval(`jenkins.build.${params.name}`, 5000);
 					} else {
 							const { apisPollInterval } = mozaik.config;
-							mozaik.bus.changeInterval(`jenkins.build.${name.name}`, apisPollInterval);
+							mozaik.bus.changeInterval(`jenkins.build.${params.name}`, apisPollInterval);
 					}
 					return json ;
 			});
 		},
 
-		test ( name ){
+		test ( params ){
 
 			mozaik.logger.info(chalk.yellow(`[jenkins] calling jenkins.test`));
 
-			return fetch(`http://nrh-pic:8080/job/${name.name}/lastBuild/api/json`,{
+			return fetch(`${params.url}/job/${params.name}/lastBuild/api/json`,{
 				method : 'GET',
 				headers : {'Accept': 'application/json'}
 			})
 			.then(res => res.json())
-			.then(json => fetch(`http://nrh-pic:8080/job/${name.name}/${json.id}/allure/widgets/summary.json`,{
+			.then(json => fetch(`${params.url}/job/${params.name}/${json.id}/allure/widgets/summary.json`,{
 				method : 'GET',
 				headers : {'Accept': 'application/json'}
 			})).then(res => res.json())
