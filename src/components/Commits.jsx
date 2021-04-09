@@ -11,7 +11,7 @@ class Commits extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			commits = null
+			commits : null
 		}
 	}
 	
