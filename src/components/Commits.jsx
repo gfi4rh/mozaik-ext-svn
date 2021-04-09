@@ -16,13 +16,14 @@ class Commits extends Component {
 	}
 	
 	getApiRequest() {
-		let { url, project } = this.props;
+		let { url, project, svnPath } = this.props;
 		
 		return {
 			id:     `gitlab.lastCommits.project`,
 			params: {
 				url : url,
-				project : project
+				project : project,
+				svnPath : svnPath
 			}
 		};
 	}

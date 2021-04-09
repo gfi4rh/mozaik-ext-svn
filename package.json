@@ -51,7 +51,7 @@
     "node": "14.15.x",
     "npm": ">=6.0.0"
   },
-  "homepage": "https://github.com/colin27091/mozaik-ext-gitlab",
+  "homepage": "https://github.com/colin27091/mozaik-ext-svn",
   "keywords": [
     "time",
     "mozaik",
@@ -63,7 +63,7 @@
   ],
   "license": "MIT",
   "main": "./src/components/index.js",
-  "name": "mozaik-ext-gitlab",
+  "name": "mozaik-ext-svn",
   "nyc": {
     "extension": [
       ".jsx"
@@ -75,7 +75,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gfi4rh/mozaik-ext-gitlab.git"
+    "url": "git://github.com/gfi4rh/mozaik-ext-svn.git"
   },
   "scripts": {
     "cover-report": "nyc report --reporter=lcov && open coverage/lcov-report/index.html",
