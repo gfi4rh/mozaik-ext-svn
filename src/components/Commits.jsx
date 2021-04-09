@@ -10,9 +10,9 @@ class Commits extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {
-			Commitss = null
-		}  
+		/*this.state = {
+			commits = null
+		}  */
 	}
 	
 	/*getApiRequest() {
