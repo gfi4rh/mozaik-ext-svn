@@ -16,12 +16,11 @@ class Commits extends Component {
 	}
 	
 	getApiRequest() {
-		let { tool, url, project } = this.props;
+		let { url, project } = this.props;
 		
 		return {
-			id:     `versionning.lastCommits.${tool}`,
+			id:     `gitlab.lastCommits.project`,
 			params: {
-				tool : tool,
 				url : url,
 				project : project
 			}
