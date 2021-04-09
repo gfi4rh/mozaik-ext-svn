@@ -10,26 +10,30 @@ class Commits extends Component {
 	
 	constructor(props) {
 		super(props);
-		/*this.state = {
+		this.state = {
 			commits = null
-		}  */
+		}
 	}
 	
-	/*getApiRequest() {
-		let { name, url } = this.props;
+	getApiRequest() {
+		let { tool, url, project } = this.props;
 		
 		return {
-			id:     `Commits.lastCommits`,
+			id:     `versionning.lastCommits.${tool}`,
 			params: {
+				tool : tool,
+				url : url,
+				project : project
 			}
 		};
 	}
 	
-	onApiData(Commitss) {
+	onApiData(commits) {
+		console.log(commits)
 		this.setState({
-			Commitss : null
+			commits : null
 		});
-	}*/
+	}
 	
 	
 	render() {
