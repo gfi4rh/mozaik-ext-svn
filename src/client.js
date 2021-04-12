@@ -41,13 +41,11 @@ const client = mozaik => {
 						}
 						let json = result.log.logentry.map((e) => {
 							
-							let author = e.author[0].split('@')[0]
-							.split('.')
-							.map(x => x.includes('jenkins') ? 'Jenkins' : x).join(' ')
-							.split(' ')
-								.map(x => x[0].toUpperCase()+x.slice(1)).join(' ')
+							let author = e.author[0].split('@')[0].includes('jenkins') ? 'Jenkins' : 
+							(e.author[0].split('@')[0].split('.')
+							.map(x => x[0].toUpperCase()+x.slice(1)).join(' ')
 							.split('-')
-								.map(x => x[0].toUpperCase()+x.slice(1)).join('-')
+								.map(x => x[0].toUpperCase()+x.slice(1)).join('-'))
 
 							return {
 								id : e.$.revision,
