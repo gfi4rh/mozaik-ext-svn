@@ -7,7 +7,9 @@ const client = mozaik => {
 
 		lastCommits ( params ) {
 
-			/*To fill*/
+			return new Promise(() => {
+				console.log("I promise")
+			})
 		}
 		
 	}

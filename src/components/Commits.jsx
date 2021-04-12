@@ -19,7 +19,7 @@ class Commits extends Component {
 		let { url, project, svnPath } = this.props;
 		
 		return {
-			id:     `gitlab.lastCommits.project`,
+			id:     `svn.lastCommits.project`,
 			params: {
 				url : url,
 				project : project,
