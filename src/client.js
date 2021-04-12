@@ -22,13 +22,21 @@ const client = mozaik => {
 
 			commits.stdout.on('data', (data) => {
 				var data = data.toString()
+				var json = []
 
 				xml2js.parseString(data, (err, result) => {
 					if(err) {
 						throw err;
 					}
-
-					console.log("Result :" +JSON.stringify(result))
+					json = result.log.logentry.map((e) => {
+						return {
+							id : e.$.revision,
+							author : e.author[0],
+							date : e.date[0],
+							msg : e.msg[0].replace(/\r\n/g, ' ')
+						}
+					})
+					return Promise.resolve(json)
 				})
 
 			});
@@ -42,7 +50,7 @@ const client = mozaik => {
 			});
 
 
-			return Promise.resolve({alpha : 0})
+			return Promise.resolve({})
 		}
 		
 	}
