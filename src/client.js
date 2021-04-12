@@ -9,6 +9,10 @@ const client = mozaik => {
 
 		lastCommits ( params ) {
 
+			mozaik.logger.info(chalk.yellow(`[svn] calling svn.lastCommit`));
+
+			var json = []
+
 			const commits = spawn(params.svnPath, [
 				'log', 
 				`${params.url}/svn/repo/${params.project}`, 
@@ -21,10 +25,9 @@ const client = mozaik => {
 				})
 
 			commits.stdout.on('data', (data) => {
-				var data = data.toString()
-				var json = []
+				var input = data.toString()
 
-				xml2js.parseString(data, (err, result) => {
+				xml2js.parseString(input, (err, result) => {
 					if(err) {
 						throw err;
 					}
@@ -36,7 +39,6 @@ const client = mozaik => {
 							msg : e.msg[0].replace(/\r\n/g, ' ')
 						}
 					})
-					return Promise.resolve(json)
 				})
 
 			});
@@ -50,7 +52,7 @@ const client = mozaik => {
 			});
 
 
-			return Promise.resolve({})
+			return Promise.resolve(json)
 		}
 		
 	}
