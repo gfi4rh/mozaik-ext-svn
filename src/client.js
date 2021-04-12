@@ -7,9 +7,7 @@ const client = mozaik => {
 
 		lastCommits ( params ) {
 
-			return new Promise(() => {
-				console.log("I promise")
-			})
+			return new Promise(() => {return {alpha : 0}})
 		}
 		
 	}
