@@ -46,7 +46,7 @@ class Commits extends Component {
 			commitsNode = commits.map(commit => 
 				<tr>
 					<td>{commit.id}</td>
-					<td>{commit.author}</td>
+					<td>{commit.author</td>
 					<td>{commit.msg}</td>
 					<td>{commit.date}</td>
 				</tr>);
@@ -61,7 +61,7 @@ class Commits extends Component {
 					</span>
 				</div>
 				<div className="widget__body">
-					<table>
+					<table> 
 						<tr>
 							<th>ID</th>
 							<th>Author</th>

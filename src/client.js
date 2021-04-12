@@ -40,9 +40,18 @@ const client = mozaik => {
 							throw err;
 						}
 						let json = result.log.logentry.map((e) => {
+							
+							let author = e.author[0].split('@')[0]
+							.split('.')
+							.map(x => x.includes('jenkins') ? 'Jenkins' : x).join(' ')
+							.split(' ')
+								.map(x => x[0].toUpperCase()+x.slice(1)).join(' ')
+							.split('-')
+								.map(x => x[0].toUpperCase()+x.slice(1)).join('-')
+
 							return {
 								id : e.$.revision,
-								author : e.author[0],
+								author : author, //turn address to name
 								date : e.date[0],
 								msg : e.msg[0].replace(/\r\n/g, ' ')
 							}
