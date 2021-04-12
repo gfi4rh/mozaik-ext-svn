@@ -46,7 +46,7 @@ class Commits extends Component {
 			commitsNode = commits.map(commit => 
 				<tr>
 					<td>{commit.id}</td>
-					<td>{commit.author</td>
+					<td>{commit.author}</td>
 					<td>{commit.msg}</td>
 					<td>{commit.date}</td>
 				</tr>);
