@@ -19,7 +19,7 @@ class Commits extends Component {
 		let { url, project, svnPath } = this.props;
 		
 		return {
-			id:     `svn.lastCommits.project`,
+			id:     `svn.lastCommits.${project}`,
 			params: {
 				url : url,
 				project : project,
@@ -29,9 +29,8 @@ class Commits extends Component {
 	}
 	
 	onApiData(commits) {
-		console.log(commits)
 		this.setState({
-			commits : null
+			commits : commits
 		});
 	}
 	
@@ -39,6 +38,20 @@ class Commits extends Component {
 	render() {
 		
 		const { title } = this.props;
+		const { commits } = this.state;
+
+		let commitsNode = [];
+
+		if(commits){
+			commitsNode = commits.map(commit => 
+				<tr>
+					<td>{commit.id}</td>
+					<td>{commit.author}</td>
+					<td>{commit.msg}</td>
+					<td>{commit.date}</td>
+				</tr>);
+		}
+
 		
 		return (
 			<div>
@@ -48,7 +61,15 @@ class Commits extends Component {
 					</span>
 				</div>
 				<div className="widget__body">
-					Commits
+					<table>
+						<tr>
+							<th>ID</th>
+							<th>Author</th>
+							<th>Commit message</th>
+							<th>Date</th>
+						</tr>
+						{commitsNode}
+					</table>
 				</div>
 			</div>
 			);
