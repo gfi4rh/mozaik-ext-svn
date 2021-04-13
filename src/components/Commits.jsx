@@ -48,7 +48,7 @@ class Commits extends Component {
 					<td className="svn__commits__id svn__commits__ellipsis">{commit.id}</td>
 					<td className="svn__commits__author svn__commits__ellipsis">{commit.author}</td>
 					<td className="svn__commits__message svn__commits__ellipsis">{commit.msg}</td>
-					<td className="svn__commits__date svn__commits__ellipsis">{commit.date}</td>
+					<td className="svn__commits__date svn__commits__ellipsis">{moment(commit.date).format('L') + " " + moment(commit.date).format('HH:mm:ss')commit.date}</td>
 				</tr>);
 		}
 
@@ -62,12 +62,12 @@ class Commits extends Component {
 				</div>
 				<div className="widget__body">
 					<table className="svn__commits__table"> 
-						<tr>
+						{/* <tr>
 							<th>ID</th>
 							<th>Author</th>
 							<th>Commit message</th>
 							<th>Date</th>
-						</tr>
+						</tr> */}
 						{commitsNode}
 					</table>
 				</div>
