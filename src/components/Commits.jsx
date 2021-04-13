@@ -45,10 +45,10 @@ class Commits extends Component {
 		if(commits){
 			commitsNode = commits.map(commit => 
 				<tr>
-					<td className="svn__commits__id svn__commits__ellipsis">{commit.id}</td>
+					<td className="svn__commits__id svn__commits__ellipsis">#{commit.id}</td>
 					<td className="svn__commits__author svn__commits__ellipsis">{commit.author}</td>
-					<td className="svn__commits__message svn__commits__ellipsis">{commit.msg}</td>
-					<td className="svn__commits__date svn__commits__ellipsis">{moment(commit.date).format('L') + " " + moment(commit.date).format('HH:mm:ss')}</td>
+					<td className="svn__commits__message svn__commits__ellipsis" title={commit.msg}>{commit.msg}</td>
+					<td className="svn__commits__date svn__commits__ellipsis">{moment(commit.date).format('L') + " | " + moment(commit.date).format('HH:mm:ss')}</td>
 				</tr>);
 		}
 
