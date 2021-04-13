@@ -45,10 +45,10 @@ class Commits extends Component {
 		if(commits){
 			commitsNode = commits.map(commit => 
 				<tr>
-					<td>{commit.id}</td>
-					<td>{commit.author}</td>
-					<td>{commit.msg}</td>
-					<td>{commit.date}</td>
+					<td className="svn__commit__id svn__commit__ellipsis">{commit.id}</td>
+					<td className="svn__commit__author svn__commit__ellipsis">{commit.author}</td>
+					<td className="svn__commit__message svn__commit__ellipsis">{commit.msg}</td>
+					<td className="svn__commit__date svn__commit__ellipsis">{commit.date}</td>
 				</tr>);
 		}
 
@@ -61,7 +61,7 @@ class Commits extends Component {
 					</span>
 				</div>
 				<div className="widget__body">
-					<table> 
+					<table className="svn__commit__table"> 
 						<tr>
 							<th>ID</th>
 							<th>Author</th>
