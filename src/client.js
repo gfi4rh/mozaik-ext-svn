@@ -49,7 +49,7 @@ const client = mozaik => {
 	
 					xml2js.parseString(input, (err, result) => {
 						if(err) {
-							throw err;
+							resolve(err)
 						}
 						let json = result.log.logentry.map((e) => {
 							

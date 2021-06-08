@@ -29,6 +29,7 @@ class Commits extends Component {
 	}
 	
 	onApiData(commits) {
+		console.log(commits)
 		this.setState({
 			commits : commits
 		});
