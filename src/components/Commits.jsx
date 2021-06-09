@@ -33,7 +33,7 @@ class Commits extends Component {
 
 		if('error' in commits){
 			this.setState({
-				error : "Problème lors de l'accès à SVN"
+				error : "Impossible d'afficher les commits"
 			})
 		} else {
 			this.setState({
