@@ -11,7 +11,8 @@ class Commits extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			commits : null
+			commits : null,
+			error : null
 		}
 	}
 	
@@ -29,28 +30,40 @@ class Commits extends Component {
 	}
 	
 	onApiData(commits) {
-		console.log(commits)
-		this.setState({
-			commits : commits
-		});
+
+		if('error' in commits){
+			this.setState({
+				error : "Problème lors de l'accès à SVN"
+			})
+		} else {
+			this.setState({
+				commits : commits
+			})
+		}
 	}
 	
 	
 	render() {
 		
 		const { title } = this.props;
-		const { commits } = this.state;
+		const { commits, error } = this.state;
 
 		let commitsNode = [];
 
 		if(commits){
-			commitsNode = commits.map(commit => 
+			commitsNode = (<table className="svn__commits__table">
+				{commits.map(commit => 
 				<tr>
 					<td className="svn__commits__id svn__commits__ellipsis">#{commit.id}</td>
 					<td className="svn__commits__author svn__commits__ellipsis">{commit.author}</td>
 					<td className="svn__commits__message svn__commits__ellipsis" title={commit.msg}>{commit.msg}</td>
 					<td className="svn__commits__date svn__commits__ellipsis">{moment(commit.date).format('L') + " | " + moment(commit.date).format('HH:mm:ss')}</td>
-				</tr>);
+				</tr>)}
+			</table>)
+
+		} else {
+
+			commitsNode = (<div className="svn__commits__error">{error}</div>)
 		}
 
 		
@@ -62,15 +75,7 @@ class Commits extends Component {
 					</span>
 				</div>
 				<div className="widget__body">
-					<table className="svn__commits__table"> 
-						{/* <tr>
-							<th>ID</th>
-							<th>Author</th>
-							<th>Commit message</th>
-							<th>Date</th>
-						</tr> */}
-						{commitsNode}
-					</table>
+					{commitsNode}
 				</div>
 			</div>
 			);
