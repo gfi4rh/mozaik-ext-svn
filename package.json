@@ -32,7 +32,8 @@
     "moment-timezone": "0.5.3",
     "node-fetch": "^2.6.1",
     "react-mixin": "3.0.4",
-    "reflux": "^0.4.1"
+    "reflux": "^0.4.1",
+    "xml2js": "^0.4.23"
   },
   "deprecated": true,
   "description": "Mozaik pattern widgets",
