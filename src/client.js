@@ -15,7 +15,7 @@ const client = mozaik => {
 
 				const commits = spawn(params.svnPath, [
 					'log', 
-					`${params.url}/svn/repo/${params.project}`, 
+					`${params.url}/${params.project}`, 
 					'-l 5',
 					'--xml'
 					], {
