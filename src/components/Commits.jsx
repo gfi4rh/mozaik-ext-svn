@@ -17,14 +17,13 @@ class Commits extends Component {
 	}
 	
 	getApiRequest() {
-		let { url, project, svnPath } = this.props;
+		let { url, project } = this.props;
 		
 		return {
 			id:     `svn.lastCommits.${project}`,
 			params: {
 				url : url,
-				project : project,
-				svnPath : svnPath
+				project : project
 			}
 		};
 	}

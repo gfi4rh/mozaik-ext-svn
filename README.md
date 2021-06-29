@@ -11,7 +11,6 @@ key        | required | description
 `title`    | yes      | *Title of the widget*
 `url`      | yes      | *URL de l'hôte SVN*
 `project`  | yes      | *Nom du projet sous SVN*
-`svnPath`  | yes      | *Chemin absolue vers l'executable SVN*
 
 ### usage
 
@@ -20,8 +19,7 @@ key        | required | description
   type: 'svn.commits',
   title : "Commit",
   url : "http://domain-svn.com",
-    project : "myProject",
-    svnPath: "C:\\Program Files\\SlikSvn\\bin\\svn.exe"
+    project : "myProject"
   columns: 4, rows: 1,
   x: 0, y: 2
 }
