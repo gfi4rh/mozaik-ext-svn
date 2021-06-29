@@ -19,7 +19,6 @@ const client = mozaik => {
 					'-l 5',
 					'--xml',
 					'--no-auth-cache',
-					'--no-auth-cache',
 					'--non-interactive',
 					'--trust-server-cert'
 					], {
