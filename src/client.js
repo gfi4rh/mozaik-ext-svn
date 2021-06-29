@@ -17,13 +17,14 @@ const client = mozaik => {
 					'log', 
 					`${params.url}/${params.project}`, 
 					'-l 5',
-					'--xml'
+					'--xml',
+					'--no-auth-cache',
+					'--no-auth-cache',
+					'--non-interactive',
+					'--trust-server-cert'
 					], {
 						'--username' : process.env.SVN_USERNAME,
 						'--password' : process.env.SVN_PASSWORD,
-						'--no-auth-cache' : true,
-						'--non-interactive': true,
-						'--trust-server-cert': true
 					})
 
 				commits.stdout.on('data', (data) => {
