@@ -20,11 +20,10 @@ const client = mozaik => {
 					'--xml',
 					'--no-auth-cache',
 					'--non-interactive',
-					'--trust-server-cert'
-					], {
-						'--username' : process.env.SVN_USERNAME,
-						'--password' : process.env.SVN_PASSWORD,
-					})
+					'--trust-server-cert',
+					`--username ${process.env.SVN_USERNAME}`,
+					`--password ${process.env.SVN_PASSWORD}`
+					])
 
 				commits.stdout.on('data', (data) => {
 
