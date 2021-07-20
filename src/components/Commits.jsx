@@ -47,6 +47,8 @@ class Commits extends Component {
 		const { title } = this.props;
 		const { commits, error } = this.state;
 
+		moment.locale('fr');
+
 		let commitsNode = [];
 
 		if(commits){
